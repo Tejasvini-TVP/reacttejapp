@@ -1,4 +1,9 @@
-// import React from 'react'
+import React from 'react';
+import Resturant from './component/Basics/Resturant';
+
+const App = () => {
+   return <Resturant/>;
+};
 
 // const App = () => {
 //   return (
@@ -8,19 +13,19 @@
 //   )
 // }
 
-const App = () => {
-  return (
-  <>
-  <MyName />
-  <h1>Hello world</h1>
-  <p>Awesome</p>
-  </>
-  );
+// const App = () => {
+//   return (
+//   <>
+//   <MyName />
+//   <h1>Hello world</h1>
+//   <p>Awesome</p>
+//   </>
+//   );
   
- }
+//  }
 
- const MyName = () => {
-    return <h1>Tejasvini vishalkumar patel</h1>;
- };
+//  const MyName = () => {
+//     return <h1>Tejasvini vishalkumar patel</h1>;
+//  };
 
-export default App;
+ export default App;
