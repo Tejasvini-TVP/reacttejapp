@@ -23,4 +23,4 @@ const App = () => {
     return <h1>Tejasvini vishalkumar patel</h1>;
  };
 
-export default App
+export default App;
