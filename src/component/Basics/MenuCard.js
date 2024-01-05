@@ -8,13 +8,14 @@ const MenuCard = ({ menuData}) => {
       {menuData.map((curElem) => {
         return(
             <>
-            <div className="card-container">
+            <div className="card-container" key={curElem.id}>
                <div className="card">
                    <div className="card-body">
-                       <span className="card-number card-circle subtle">1</span>
-                       <span className="card-author subtle">Breakfast</span>
-                       <h2 className="card-title">Maggi</h2>
+                       <span className="card-number card-circle subtle">{curElem.id}</span>
+                       <span className="card-author subtle">{curElem.name}</span>
+                       <h2 className="card-title">{curElem.name}</h2>
                        <span className="card-description subtle">
+                        {curElem.desciption}
                            I love Maggi realy oo yues Lorem ipsum dolor sit amet consectetur
                            adipisicing elit. Blanditiid, at consecetetur totam voluptatibus
                            quobusdam iusto.Accusamus quas, soluta ipsam autem eius
@@ -22,7 +23,7 @@ const MenuCard = ({ menuData}) => {
                        </span>
                        <div className="card-read">Read</div>
                    </div>
-                   {/* <img src={images} alt="images" className="card-media" /> */}
+                   <img src={curElem.image} alt="images" className="card-media" />
                    <span className="card-tag subtle">Order Now</span>
                </div>
             </div>
