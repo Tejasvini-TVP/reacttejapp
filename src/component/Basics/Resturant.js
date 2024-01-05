@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./style.css";
 import Menu from './menuApi';
 
+
 const Resturant = () => {
+    const [menuData, setmenuData] = useState(Menu);
   return (
     <>
      <div className="card-container">
@@ -19,7 +21,7 @@ const Resturant = () => {
                 </span>
                 <div className="card-read">Read</div>
             </div>
-            <img src={images} alt="images" className="card-media" />
+            {/* <img src={images} alt="images" className="card-media" /> */}
             <span className="card-tag subtle">Order Now</span>
         </div>
      </div>
