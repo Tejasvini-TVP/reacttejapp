@@ -6,16 +6,17 @@ const MenuCard = ({ menuData}) => {
     <>
     <section className="main-card--cointainer">
       {menuData.map((curElem) => {
+        const { id, name, ategory, image, description } = curElem;
         return(
             <>
-            <div className="card-container" key={curElem.id}>
+            <div className="card-container" key={id}>
                <div className="card">
                    <div className="card-body">
-                       <span className="card-number card-circle subtle">{curElem.id}</span>
-                       <span className="card-author subtle">{curElem.name}</span>
-                       <h2 className="card-title">{curElem.name}</h2>
+                       <span className="card-number card-circle subtle">{id}</span>
+                       <span className="card-author subtle">{name}</span>
+                       <h2 className="card-title">{name}</h2>
                        <span className="card-description subtle">
-                        {curElem.desciption}
+                        {description}
                            I love Maggi realy oo yues Lorem ipsum dolor sit amet consectetur
                            adipisicing elit. Blanditiid, at consecetetur totam voluptatibus
                            quobusdam iusto.Accusamus quas, soluta ipsam autem eius
@@ -23,7 +24,7 @@ const MenuCard = ({ menuData}) => {
                        </span>
                        <div className="card-read">Read</div>
                    </div>
-                   <img src={curElem.image} alt="images" className="card-media" />
+                   <img src={image} alt="images" className="card-media" />
                    <span className="card-tag subtle">Order Now</span>
                </div>
             </div>
