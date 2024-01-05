@@ -5,11 +5,12 @@ import MenuCard from"./MenuCard";
 
 
 const Resturant = () => {
+    
     const [menuData, setmenuData] = useState(Menu);
    
   return (
     <>
-     <MenuCard/>
+     <MenuCard menuData={menuData} />
     </>
   )
 }
