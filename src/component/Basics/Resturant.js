@@ -18,6 +18,10 @@ const Resturant = () => {
     const [menuList,setMenuList] = useState(uniqueList);
      
     const filterItem = (category) => {
+      if (category === "All" ) {
+        setmenuData(Menu);
+        return;
+      }
         const updatedlist = Menu.filter((curElem) => {
             return curElem.category === category;
         });
