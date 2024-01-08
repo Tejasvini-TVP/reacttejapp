@@ -1,31 +1,9 @@
 import React from 'react';
 import Resturant from './component/Basics/Resturant';
-
+import UseState from './component/Hooks/use.State';
 const App = () => {
-   return <Resturant/>;
+   // return <Resturant/>;
+   return <UseState/>;
 };
-
-// const App = () => {
-//   return (
-//     <div>
-//       hello world
-//     </div>
-//   )
-// }
-
-// const App = () => {
-//   return (
-//   <>
-//   <MyName />
-//   <h1>Hello world</h1>
-//   <p>Awesome</p>
-//   </>
-//   );
-  
-//  }
-
-//  const MyName = () => {
-//     return <h1>Tejasvini vishalkumar patel</h1>;
-//  };
 
  export default App;
