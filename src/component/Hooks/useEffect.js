@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import "./style.css";
 
 
-const useEffect = () => {
+const UseEffect = () => {
+ 
 
-
-    const [myNum, setMyNum] = React.useState(0)
+     const [myNum, setMyNum] = useState(0)
    
+      useEffect(() => {
+       console.log("Hii");
+      },[]);
+
     return(
         <>
         <div className="center_div">
@@ -23,4 +27,4 @@ const useEffect = () => {
         </>
     )
 }
-export default useEffect;
+export default UseEffect;
