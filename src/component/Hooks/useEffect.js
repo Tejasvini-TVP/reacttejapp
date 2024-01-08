@@ -8,8 +8,8 @@ const UseEffect = () => {
      const [myNum, setMyNum] = useState(0)
    
       useEffect(() => {
-       console.log("Hii");
-      },[]);
+       document.title = `Chats(${myNum})`;
+      });
 
     return(
         <>
