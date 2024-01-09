@@ -3,14 +3,12 @@ import "./style.css";
 
 const reducer = (state,action) => {};
 const UseReducer = () => {
-    const UseReducer = () =>{
 
-    }
 
     const initialData = 10;
     // const [myNum, setMyNum] = React.useState(0)
    
-    const [state,dispatch] = useReducer(reducer,intialData);
+    const [state,dispatch] = useReducer(reducer,initialData);
 
     return(
         <>
