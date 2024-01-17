@@ -1,15 +1,18 @@
 import React, { useReducer, useState } from "react";
 import "./style.css";
 
-const reducer = (state,action) => {};
-const UseReducer = () => {
+const reducer = (state,action) => {
     if (action.type === "INCR") {
          state = state + 1;
     }
-    if (action.type === "DECR") {
+    if (state > 0 && action.type === "DECR") {
         state = state - 1;
    }
+   return state;
+};
+ const UseReducer = () => {
 
+ 
     const initialData = 10;
     // const [myNum, setMyNum] = React.useState(0)
    
@@ -18,7 +21,7 @@ const UseReducer = () => {
     return(
         <>
         <div className="center_div">
-            <p>{myNum}</p>
+            <p>{state}</p>
             <div class="button2" onClick={() => dispatch({type:"INCR"})}>
              <span></span> 
              <span></span> 
