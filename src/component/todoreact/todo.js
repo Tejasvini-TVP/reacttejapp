@@ -1,8 +1,10 @@
-import React,{ useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import "./style.css"
+
+//  get the localstorage data back
 const Todo = () => {
     const [inputdata, setInputData] = useState("");
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(getLocalData());
 
     // add the items function
 
@@ -29,6 +31,11 @@ const Todo = () => {
     const removeAll = () => {
         setItems([]);
     } 
+
+    // adding localstorage
+    useEffect(() => {
+        localStorage.setItem("mytodolist",JSON.stringify(items));
+    }, [items]);
   return (
     <>
       <div className="main-div">
