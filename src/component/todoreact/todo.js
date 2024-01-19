@@ -15,12 +15,16 @@ const Todo = () => {
     const [inputdata, setInputData] = useState("");
     const [items, setItems] = useState(getLocalData());
     const [isEditItem, setIsEditItem] = useState("")
+    const [toggleButton, setToggleButton] = useState(false);
+
     // add the items function
+
 
     const addItem = () => {
         if (!inputdata) {
        alert("plz fill the data");
-        }else{
+        }
+        else{
             const myNewInputData = {
                 id: new Date().getTime().toString(),
                 name: inputdata,
@@ -31,10 +35,12 @@ const Todo = () => {
     }
     // edit the items
     const editItem = (index) => {
-        const item_todo_editrd = items.find((curElem) => {
+        const item_todo_edited = items.find((curElem) => {
             return curElem.id === index;
-        })
+        });
+        setInputData(item_todo_edited.name)
         setIsEditItem(index)
+        setToggleButton(true)
     }
     // how to delete item section
     const deleteItem = (index) => {
@@ -68,7 +74,15 @@ const Todo = () => {
              value={inputdata }
              onChange={(event) => setInputData(event.target.value)}
              />
+             {toggleButton ?(
+
+             
              <i className='fa fa-plus add-btn' onClick={addItem}></i>  
+             ):(
+                <i className='fa fa-plus add-btn' onClick={addItem}></i>   
+             
+
+             )}
         </div>
 
         {/* show our items */}
