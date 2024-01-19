@@ -2,10 +2,19 @@ import React,{ useEffect, useState } from 'react'
 import "./style.css"
 
 //  get the localstorage data back
+ const getLocalData = ( ) => {
+ const lists =  localStorage.getItem("mytodolist")
+
+ if (lists) {
+    return JSON.parse(lists);
+ }else{
+    return[];
+ }
+}
 const Todo = () => {
     const [inputdata, setInputData] = useState("");
     const [items, setItems] = useState(getLocalData());
-
+    const [isEditItem, setIsEditItem] = useState("")
     // add the items function
 
     const addItem = () => {
@@ -19,6 +28,13 @@ const Todo = () => {
             setItems([...items, myNewInputData ])
             setInputData("")
         }
+    }
+    // edit the items
+    const editItem = (index) => {
+        const item_todo_editrd = items.find((curElem) => {
+            return curElem.id === index;
+        })
+        setIsEditItem(index)
     }
     // how to delete item section
     const deleteItem = (index) => {
@@ -62,7 +78,7 @@ const Todo = () => {
             <div className='eachItem' key={curElem.id}>
                 <h3>{curElem.name}</h3>
                 <div className='todo-btn'>
-                <i className="fa fa-plus add-btn"></i>  
+                <i className="fa fa-plus add-btn"onClick={() => editItem(curElem.id)}></i>  
                 <i className="fa fa-plus add-btn"onClick={() => deleteItem(curElem.id)}></i>  
 
                 </div>
