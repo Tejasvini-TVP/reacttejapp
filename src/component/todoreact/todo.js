@@ -21,8 +21,9 @@ const Todo = () => {
     // how to delete item section
     const deleteItem = (index) => {
         const updateItem = items.filter((curElem) => {
-            return curElem.id === index;
+            return curElem.id !== index;
         }) 
+        setItems(updateItem)
     }
   return (
     <>
