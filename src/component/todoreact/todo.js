@@ -1,6 +1,6 @@
 import React from 'react'
 import "./style.css"
-const todo = () => {
+const Todo = () => {
   return (
     <>
       <div className="main-div">
@@ -15,6 +15,14 @@ const todo = () => {
              placeholder='✍️ Add Item'
              className='form-control'
              />
+             <i className='fa fa-plus add-btn'></i>  
+        </div>
+                 {/* Remove all button */}
+        <div className='showItems'>
+            <button className="btn effect04" data-sm-link-text="Remove All">
+                <span>CHECK LIST</span>
+            </button>
+
         </div>
       </div>
       </div>
@@ -22,4 +30,4 @@ const todo = () => {
   )
 }
 
-export default todo
+export default Todo
