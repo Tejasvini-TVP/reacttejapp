@@ -23,8 +23,19 @@ const Todo = () => {
     const addItem = () => {
         if (!inputdata) {
        alert("plz fill the data");
-        }
-        else{
+        }else if (inputdata && isEditItem) {
+            setItems(
+                items.map((curElem) => {
+                    if(curElem.id === isEditItem)
+                    return {...curElem,name: inputdata
+                }
+            return curElem;
+            })
+            );
+            setInputData("")
+            setIsEditItem(null)
+            setToggleButton(false) 
+        }else{
             const myNewInputData = {
                 id: new Date().getTime().toString(),
                 name: inputdata,
