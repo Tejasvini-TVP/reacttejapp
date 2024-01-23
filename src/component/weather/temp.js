@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import weatherCard from './weatherCard'
 import "./style.css"
 
 const Temp = () => {

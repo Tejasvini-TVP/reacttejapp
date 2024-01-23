@@ -1,15 +1,7 @@
-import React ,{useEffect}from 'react'
+import React from 'react'
 
 const weatherCard = ({ tempInfo}) => {
-    const {
-    humidity,
-    pressure,
-    weathermood,
-    name,
-    speed,
-    country,
-    sunset
- } = tempInfo;
+    
   return (
     <>
       <article className='widget'>
@@ -19,7 +11,7 @@ const weatherCard = ({ tempInfo}) => {
 
           <div className='weatherInfo'>
             <div className='temperature'>
-                <span>{temp}&deg;</span>
+                <span>25.5&deg;</span>
             </div>
             <div className='description'>
                 <div className='weatherCondition'>sunny</div>
