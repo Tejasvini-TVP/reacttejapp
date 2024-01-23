@@ -1,55 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import "./style.css"
+import React ,{useEffect}from 'react'
 
-const Temp = () => {
-    const[searchValue, setSearchValue] = useState("Ahmedabad")
-    const [tempInfo, setTemInfo] = useState("")
-    const getWeatherInfo = async () => {
-     try{
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metricappid=096be8eceb9d72b1854115d544046ac9`
-
-        const res = await fetch(url);
-        const data = await res.json();
-          
-        const { temp,humidity, pressure} = data.main;
-        const { main: weathermood } = data.weather[0];
-        const { name} = data;
-        const { speed } = data.wind;
-        const { country ,sunset} = data.sys;
-       
-        const myNewWeatherInfo = {
-            temp,
-            humidity,
-            pressure,
-            weathermood,
-            name,
-            country,
-            sunset
-        }
-     }catch (error){
-        console.log(error)
-     }
-    }
-    useEffect(() => {getWeatherInfo () },[])
+const weatherCard = ({ tempInfo}) => {
+    const {
+    humidity,
+    pressure,
+    weathermood,
+    name,
+    speed,
+    country,
+    sunset
+ } = tempInfo;
   return (
     <>
-      <div className='wrap'>
-        <div className='search'>
-            <input
-            type='search'
-            placeholder='search...'
-            autoFocus
-            id='search'
-            className='searchTemp'
-            value={searchValue}
-             onChange={(e) => setSearchValue(e.target.value)}
-            />
-             <button className='searchButton' type='button'onClick={getWeatherInfo}>
-                search
-             </button>
-        </div>
-      </div>
-      {/* our temp card */}
       <article className='widget'>
           <div className='weatherIcon'>
            <i className='wi wi-day-sunny'></i> 
@@ -57,7 +19,7 @@ const Temp = () => {
 
           <div className='weatherInfo'>
             <div className='temperature'>
-                <span>25.5&deg;</span>
+                <span>{temp}&deg;</span>
             </div>
             <div className='description'>
                 <div className='weatherCondition'>sunny</div>
@@ -119,4 +81,4 @@ const Temp = () => {
   )
 }
 
-export default Temp
+export default weatherCard
