@@ -1,7 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
 
 const Temp = () => {
+    const[searchValue, setSearchValue] = useState("Ahmedabad")
+    const [tempInfo, setTemInfo] = useState({})
+    const getWeatherInfo = async () => {
+     try{
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metricappid=096be8eceb9d72b1854115d544046ac9`
+
+        const res = await fetch(url);
+        const data = await res.json();
+          
+        const { temp,humidity, pressure} = data.main;
+        const { main: weathermood } = data.weather[0];
+        const { name} = data;
+        const { speed } = data.wind;
+        const { country ,sunset} = data.sys;
+       
+        const myNewWeatherInfo = {
+            temp,
+            humidity,
+            pressure,
+            weathermood,
+            name,
+            speed,
+            country,
+            sunset
+        }
+        setTemInfo(myNewWeatherInfo);
+     }catch (error){
+        console.log(error)
+     }
+    }
+    useEffect(() => {getWeatherInfo () },[])
   return (
     <>
       <div className='wrap'>
@@ -12,8 +43,10 @@ const Temp = () => {
             autoFocus
             id='search'
             className='searchTemp'
+            value={searchValue}
+             onChange={(e) => setSearchValue(e.target.value)}
             />
-             <button className='searchButton' type='button'>
+             <button className='searchButton' type='button'onClick={getWeatherInfo}>
                 search
              </button>
         </div>
@@ -30,7 +63,7 @@ const Temp = () => {
             </div>
             <div className='description'>
                 <div className='weatherCondition'>sunny</div>
-                <div className='place'>Pune,India</div>
+                <div className='place'>Ahmedabad,Gujarat</div>
             </div>
           </div>
 
@@ -53,12 +86,34 @@ const Temp = () => {
                 <div className='two-sided-section'>
                     <p>
                         <i className={'wi wi-humidity'}></i>
+                        {/* <i className={'wi wi-sunset'}></i> */}
                     </p>
                     <p className='extra-info-leftside'>
                         19:19 PM <br/>
                         Humidity
                     </p>
                 </div>
+            </div>
+            <div className='weather-extra-info'>
+          
+            <div className='two-sided-section'>
+                    <p>
+                        <i className={'wi wi-humidity'}></i>
+                    </p>
+                    <p className='extra-info-leftside'>
+                        19:19 PM <br/>
+                        pressure
+                    </p>
+                </div> 
+                <div className='two-sided-section'>
+                    <p>
+                        <i className={'wi wi-humidity'}></i>
+                    </p>
+                    <p className='extra-info-leftside'>
+                        19:19 PM <br/>
+                       speed
+                    </p>
+                </div> 
             </div>
           </div>
       </article>
