@@ -3,11 +3,11 @@ import "./style.css"
 
 const Temp = () => {
     const[searchValue, setSearchValue] = useState("Ahmedabad")
-    const [tempInfo, setTemInfo] = useState({})
+    const [tempInfo, setTemInfo] = useState({""})
     const getWeatherInfo = async () => {
      try{
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metricappid=096be8eceb9d72b1854115d544046ac9`
-
+ 
         const res = await fetch(url);
         const data = await res.json();
           
