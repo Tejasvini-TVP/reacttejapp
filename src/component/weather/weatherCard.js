@@ -73,4 +73,4 @@ const weatherCard = ({ tempInfo}) => {
   )
 }
 
-export default weatherCard
+export default weatherCard;

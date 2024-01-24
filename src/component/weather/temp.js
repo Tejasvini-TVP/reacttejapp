@@ -24,9 +24,11 @@ const Temp = () => {
             pressure,
             weathermood,
             name,
+            speed,
             country,
             sunset
         }
+        setTemInfo()
      }catch (error){
         console.log(error)
      }
@@ -41,7 +43,7 @@ const Temp = () => {
             placeholder='search...'
             autoFocus
             id='search'
-            className='searchTemp'
+            className='searchTerm'
             value={searchValue}
              onChange={(e) => setSearchValue(e.target.value)}
             />
