@@ -1,7 +1,25 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
-const weatherCard = ({ tempInfo}) => {
+const Weathercard = ({ tempInfo}) => {
+    const [weatherState, setWeatherState] = React. ReactuseState("");
+    const {
+        temp,
+        humidity,
+        pressure,
+        weathermood,
+        name,
+        speed,
+        country,
+        sunset,
+    } =tempInfo;   
     
+    useEffect(() => {
+        
+    }, [input]);
+    // converting the seconds into time
+  let sec = sunset;
+  let date = new Date(sec * 1000);
+  let timeStr = `${date.getHours()}:${date.getMinutes()}`;
   return (
     <>
       <article className='widget'>
@@ -11,11 +29,12 @@ const weatherCard = ({ tempInfo}) => {
 
           <div className='weatherInfo'>
             <div className='temperature'>
-                <span>25.5&deg;</span>
+                <span>{temp}&deg;</span>
+                {/* <span>25.5&deg;</span> */}
             </div>
             <div className='description'>
                 <div className='weatherCondition'>sunny</div>
-                <div className='place'>Ahmedabad,Gujarat</div>
+                <div className='place'>{name},{country}</div>
             </div>
           </div>
 
@@ -30,7 +49,7 @@ const weatherCard = ({ tempInfo}) => {
                         <i className={'wi wi-sunset'}></i>
                     </p>
                     <p className='extra-info-leftside'>
-                        19:19 PM <br/>
+                       { sunset} <br/>
                         Sunset
                     </p>
                 </div>
@@ -41,7 +60,7 @@ const weatherCard = ({ tempInfo}) => {
                         {/* <i className={'wi wi-sunset'}></i> */}
                     </p>
                     <p className='extra-info-leftside'>
-                        19:19 PM <br/>
+                        { humidity} <br/>
                         Humidity
                     </p>
                 </div>
@@ -53,7 +72,7 @@ const weatherCard = ({ tempInfo}) => {
                         <i className={'wi wi-humidity'}></i>
                     </p>
                     <p className='extra-info-leftside'>
-                        19:19 PM <br/>
+                       { pressure} <br/>
                         pressure
                     </p>
                 </div> 
@@ -62,7 +81,7 @@ const weatherCard = ({ tempInfo}) => {
                         <i className={'wi wi-humidity'}></i>
                     </p>
                     <p className='extra-info-leftside'>
-                        19:19 PM <br/>
+                       { speed} <br/>
                        speed
                     </p>
                 </div> 
@@ -73,4 +92,4 @@ const weatherCard = ({ tempInfo}) => {
   )
 }
 
-export default weatherCard;
+export default Weathercard;
