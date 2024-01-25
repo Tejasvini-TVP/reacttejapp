@@ -14,8 +14,27 @@ const Weathercard = ({ tempInfo}) => {
     } =tempInfo;   
     
     useEffect(() => {
-        
-    }, [input]);
+        if (weathermood) {
+          switch (weathermood) {
+            case "Clouds":
+              setWeatheState("wi-day-cloudy");
+              break;
+            case "Haze":
+              setWeatheState("wi-fog");
+              break;
+            case "Clear":
+              setWeatheState("wi-day-sunny");
+              break;
+            case "Mist":
+              setWeatheState("wi-dust");
+              break;
+    
+            default:
+              setWeatheState("wi-day-sunny");
+              break;
+          }
+        }
+      }, [weathermood]);
     // converting the seconds into time
   let sec = sunset;
   let date = new Date(sec * 1000);
