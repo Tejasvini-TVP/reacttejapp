@@ -98,6 +98,7 @@ const Todo = () => {
           {/* show our items  */}
           <div className="showItems">
             {items.map((curElem) => {
+              
               return (
                 <div className="eachItem" key={curElem.id}>
                   <h3>{curElem.name}</h3>
