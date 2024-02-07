@@ -1,9 +1,10 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import "./style.css";
 const Card = () => {
+  const [color,setColor] = useState("olive")
   return (
-    <div>
-      
+    <div className='bg'>
+     
     </div>
   )
 }

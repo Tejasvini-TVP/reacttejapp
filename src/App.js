@@ -9,7 +9,8 @@ import UseReducer from './component/Hooks/useReducer';
 const App = () => {
    // return <Resturant/>;
    // return <Todo/>;
-   return;
+   return <Card/>
+   
 };
 
  export default App;
