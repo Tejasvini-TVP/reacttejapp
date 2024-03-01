@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useCallback } from 'react'
 
 import './App.css'
 
@@ -8,7 +8,8 @@ function App() {
   const [charAllowed,setCharAllowed] = useState(false)
   const [password,setPassword] = useState("")
 
-  
+
+  const passwordGenerator = useCallback(fn, [length,numberAllowed,charAllowed,setPassword])
   return (
     <>
       <h1 className='text-4xl text-center 
