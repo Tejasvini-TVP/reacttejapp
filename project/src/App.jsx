@@ -1,4 +1,4 @@
-import { useState,useCallback,useEffect } from 'react'
+import { useState,useCallback } from 'react'
 
 import './App.css'
 
@@ -23,7 +23,6 @@ function App() {
   },
  [length,numberAllowed,charAllowed,setPassword])
 
- passwordGenerator()
   return (
     <>
       <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 
