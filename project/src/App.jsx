@@ -24,7 +24,9 @@ function App() {
    setPassword(pass)
   },[length,numberAllowed,charAllowed,setPassword])
   
-  const copyPasswordToClipboard = useCallback(() => {})
+  const copyPasswordToClipboard = useCallback(() => {
+    window.navigator.clipboard.writeText 
+  }, [password])
  useEffect(() => {
   passwordGenerator()
  },[length,numberAllowed,charAllowed,passwordGenerator])
