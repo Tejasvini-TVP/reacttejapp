@@ -3,7 +3,7 @@ import { useState,useCallback, useEffect,useRef } from 'react'
 import './App.css'
 
 function App() {
-  const [length, setlength] = useState(8)
+  const [length, setlength] = useState(23)
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed,setCharAllowed] = useState(false)
   const [password,setPassword] = useState("")
@@ -18,14 +18,16 @@ function App() {
     if (charAllowed) str += "!@#$%^&*-+_{}[]`~"
     
    for (let i = 1; i <= length; i++){
-    let char = Math.floor(math.random() * str.length + 1)
+    let char = Math.floor(Math.random() * str.length + 1)
     pass += str.charAt(char)
    }
    setPassword(pass)
   },[length,numberAllowed,charAllowed,setPassword])
   
   const copyPasswordToClipboard = useCallback(() => {
-    window.navigator.clipboard.writeText 
+    passwordRef.current?.select()
+    passwordRef.current?.setSelectionRange(0,7)
+    window.navigator.clipboard.writeText(password) 
   }, [password])
  useEffect(() => {
   passwordGenerator()
@@ -65,6 +67,7 @@ function App() {
               </div>
               <div className='flex items-center gap-x-1'>
                 <input
+              
                  type='checkbox'
                  defaultChecked={numberAllowed}
                  id='numberInput'
