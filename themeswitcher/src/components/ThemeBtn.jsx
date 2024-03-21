@@ -20,7 +20,7 @@ export default function ThemeBtn() {
                      value=""
                      className="sr-only peer"
                      onChange={onChangeBtn}
-                     checked={themeMode=== "dark"}
+                     checked={themeMode==="dark"}
                 />
                 {/* Toggle Theme button */}
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4
