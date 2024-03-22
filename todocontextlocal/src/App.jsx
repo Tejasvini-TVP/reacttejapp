@@ -27,6 +27,7 @@ function App() {
   :prevTodo))
  }
 
+//  localstorage
  useEffect(() => {
   const todos = JSON.parse(localStorage.getItem("todos"))
 
@@ -34,7 +35,7 @@ function App() {
     setTodos(todos)
   }
 }, [])
-
+//  localstorage
 useEffect(() => {
   localStorage.setItem("todos", JSON.stringify(todos))
 }, [todos])
