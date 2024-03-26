@@ -1,7 +1,7 @@
 import conf from '../conf.js'
 import { client,Account,ID}  from "appwrite";
 
-//Authenticcation service
+//Authentication service
 export class Authservice{
     client = new client();
     account;
