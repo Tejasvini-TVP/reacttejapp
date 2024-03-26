@@ -1,6 +1,7 @@
 import conf from '../conf.js'
 import { client,Account,ID}  from "appwrite";
 
+//Authenticcation service
 export class Authservice{
     client = new client();
     account;
@@ -33,8 +34,24 @@ export class Authservice{
         throw error;
       } 
     }
-    
+    async getCurrentUser() {
+        try{
+        return await this.account.get();
+    } catch (error) {
+        console.log("Appwrite server :: getCurrentUser :: error", error);
+    }
+      return null;
+
+    }
+    async logout() {
+        try  {
+            await this.account.deleteSessions();
+        } catch (error) {
+
+        }
+    }
 }
 
 const authservice = new Authservice();
+
 export default Authservice
