@@ -52,7 +52,25 @@ export  class service{
            } catch(error) {
             console.log("Appwrite service :: createPost :: error",error);
            }
-        }  
+        }
+
+        //  delete method
+    async deletePost(slug) 
+    {
+        try{
+         await this.databases.createDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+               
+            )
+            return true;
+
+           } catch(error) {
+            console.log("Appwrite service :: createPost :: error",error);
+            return false;
+           }
+        }
     }
 
 
