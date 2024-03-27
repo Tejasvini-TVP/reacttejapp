@@ -71,6 +71,20 @@ export  class service{
             return false;
            }
         }
+//   single post method
+        async getPost(slug) {
+        try{
+         await this.databases.createDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+               
+            )
+           } catch(error) {
+            console.log("Appwrite service :: createPost :: error",error);
+            return false;
+           }
+        }
     }
 
 
