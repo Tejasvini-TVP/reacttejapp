@@ -1,9 +1,9 @@
-import conf from '../conf.js'
-import { client,Account,ID}  from "appwrite";
+// import conf from './conf/conf.js'
+// import { Client,Account,ID }  from "appwrite";
 
 //Authentication service
-export class Authservice{
-    client = new client();
+export class AuthService{
+    client = new Client();
     account;
 
     constructor() {
@@ -52,6 +52,6 @@ export class Authservice{
     }
 }
 
-const authservice = new Authservice();
+const authService = new AuthService();
 
-export default Authservice
+export default authService
