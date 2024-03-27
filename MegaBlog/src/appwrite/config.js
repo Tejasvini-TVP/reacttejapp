@@ -6,6 +6,13 @@ export  class service{
     client = new Client();
     Databases;
     bucket;
+    constructor() {
+        this.client
+        .setEndpoint(conf.appwriteUrl)
+        .setProject(conf.appwriteProjectId)
+        this.databases = new this.databases(this.client)  
+        this.bucket = new Storage(this.client)  
+    }
 }
 
 const service = new Service()
