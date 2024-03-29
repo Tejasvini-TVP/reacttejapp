@@ -9,13 +9,14 @@ function PostForm({post}) {
     const {register,handleSubmit,watch,setValue,control,getvalues} = useForm ({
         defaultValues: {
             title: post?.title || '',
-            slug: post?.slug || '',
+            slug: post?.$id|| '',
             content: post?.content || '',
             status: post?.status || 'active',
             
         }
     })
-
+        const navigate = useNavigate();
+        const userData = useSelector((state) => state.auth.userData);  
     const submit = async (data) => {
         if(post) {
             const file = data.image[0] ? appwriteService.
@@ -29,7 +30,7 @@ function PostForm({post}) {
                 featuredImage: file? file.$id : undefined
             })
                 if (dbPost) {
-                  navigator(`/post/${dbPost.$id}`)
+                  navigate(`/post/${dbPost.$id}`)
                 }  
         } else{
 
@@ -43,7 +44,7 @@ function PostForm({post}) {
                     userId: useRouteLoaderData.$id,
                 }) 
                 if (dbPost) {
-                    navigat(`/post/${dbPost.$id}`)
+                    navigate(`/post/${dbPost.$id}`)
                 }
             }
         }
