@@ -6,9 +6,10 @@ import Container from "./components/container/Container";
 import RTE from"./components/RTE";
 import Signup from './components/Signup';
 import Login from "./Login"
-import Post from './pages/Post'
 import PostFrom from '../src/components/post-form/PostForm'
 import PostCard from './components/PostCard'
+import AuthLayout from './components/AuthLayout'
+
 
 export {
     Header,
