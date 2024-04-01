@@ -8,7 +8,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 // import {AuthLayout,Login} from './index.js'
-import AddPost from './pages/Post.jsx'
+import AddPost from './pages/AddPost.jsx'
 import Signup from './pages/Signup.jsx'
 import EditPost from "./pages/EditPost"
 import AllPosts from "./pages/AllPosts";
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+    <RouterProvider router={router}/>
      </Provider>
   </React.StrictMode>,
 )
