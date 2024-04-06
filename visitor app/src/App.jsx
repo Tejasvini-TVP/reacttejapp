@@ -1,15 +1,14 @@
-import Navbar from "./components/Navbar/Navbar"
-import Sidebar from "./components/Sidebar/Sidebar"
+import ButtonAppBar from "./components/Navbar/Navbar"
+
+// import TemporaryDrawer from "./components/Sidebar/Sidebar"
 
 function App() {
  
 
   return (
-    <>
-   <Navbar/>
-  <Sidebar/>
-  
-    </>
+    <div className="App">
+   <ButtonAppBar></ButtonAppBar>
+    </div>
   )
 }
 
